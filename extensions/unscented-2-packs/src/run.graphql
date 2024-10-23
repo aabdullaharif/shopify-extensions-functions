@@ -1,0 +1,22 @@
+query RunInput {
+  cart {
+    lines {
+      id
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+        }
+        __typename
+      }
+    }
+  }
+  shop {
+    unscented_variants: metafield(namespace: "global", key: "unscented_variants") {
+      jsonValue
+    }
+    unscented_2_pack_discount_percentage: metafield(namespace: "global", key: "unscented_2_pack_discount_percentage") {
+      value
+    }
+  }
+}
